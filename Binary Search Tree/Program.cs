@@ -28,6 +28,20 @@ namespace Binary_Search_Tree
             ROOT = null;
         }
 
+        public void search(string element, ref Node parent, ref Node currentNode)
+        {
+            currentNode = ROOT;
+            parent = null;
+            while ((currentNode != null) && (currentNode.info != element))
+            {
+                parent = currentNode;
+                if (string.Compare(element, currentNode.info) < 0)
+                    currentNode = currentNode.leftchild;
+                else
+                    currentNode = currentNode.rightchild;
+            }
+        }
+
         static void Main(string[] args)
         {
         }
