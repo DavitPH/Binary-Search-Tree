@@ -42,6 +42,33 @@ namespace Binary_Search_Tree
             }
         }
 
+        public void insert(string element)
+        {
+            Node tmp, parent = null, currentNode = null;
+            search(element, ref parent, ref currentNode);
+            if (currentNode != null)
+            {
+                Console.WriteLine("Duplicate words not allowed");
+                return;
+            }
+            else
+            {
+                tmp = new Node(element, null, null);
+                if (parent == null)
+                {
+                    ROOT = tmp;
+                }
+                else if (string.Compare(element, parent.info) < 0)
+                {
+                    parent.leftchild = tmp;
+                }
+                else
+                {
+                    parent.rightchild = tmp;
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
         }
